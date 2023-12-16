@@ -32,6 +32,8 @@
     
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
     $(document).ready(function(){
 
@@ -53,8 +55,13 @@
                 data: formData,
                 success:function(data){
                     var response = JSON.parse(data);
-                    //$('#test-add').reset();
-                     
+                    
+                    Swal.fire({
+                        title: "Success",
+                        text: "Data Added Successfully",
+                        icon: "success"
+                    });
+
                     $("#test-add").get(0).reset(); 
                     tableLoad();
                 },
@@ -97,6 +104,7 @@
                     }
                     console.log(text);
                     $('#table_body').html(text);
+                    
                 },
                 error:function(data){
                     alert('bad');
